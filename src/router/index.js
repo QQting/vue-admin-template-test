@@ -150,6 +150,18 @@ export const constantRoutes = [
   },
 
   {
+    path: '/robots',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/robots/robots-index'),
+        name: 'Robots',
+        meta: { title: 'Robots', icon: 'user' }
+      }
+    ]
+  },
+  {
     path: 'external-link',
     component: Layout,
     children: [
