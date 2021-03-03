@@ -1,5 +1,15 @@
 <template>
   <div class="app-container">
+
+    <div class="filter-container">
+      <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="todo()">
+        Search
+      </el-button>
+      <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload()">
+        Export
+      </el-button>
+    </div>
+
     <el-table
       :key="tableKey"
       v-loading="listLoading"
@@ -61,10 +71,10 @@
       </el-table-column>
       <el-table-column label="Actions" align="center" width="230" class-name="small-padding fixed-width">
         <template slot-scope="{row}">
-          <el-button type="primary" size="mini" @click="handleUpdate(row)">
+          <el-button v-waves type="primary" size="mini" @click="handleUpdate(row)">
             Edit
           </el-button>
-          <el-button type="" size="mini" @click="todo()">
+          <el-button v-waves type="" size="mini" @click="todo()">
             Refresh
           </el-button>
         </template>
@@ -82,10 +92,10 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">
+        <el-button v-waves @click="dialogFormVisible = false">
           Cancel
         </el-button>
-        <el-button type="primary" @click="dialogStatus==='create'?createData():updateData()">
+        <el-button v-waves type="primary" @click="dialogStatus==='create'?createData():updateData()">
           Confirm
         </el-button>
       </div>
